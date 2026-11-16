@@ -2,3 +2,5 @@ interface:
   display_name: "Проектирование микросервисов"
   short_description: "Границы сервисов, события и устойчивость"
   default_prompt: "Используй $microservice-design для проектирования границ и контрактов этой системы."
+policy:
+  allow_implicit_invocation: true
