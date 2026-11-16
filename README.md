@@ -1,1 +1,62 @@
-# architecture-hl-skills
+# Проектирование микросервисов
+
+Готовый навык `microservice-design` для Codex, Claude Code, Claude и Cursor на основе материалов пользователя. Границы сервисов и владение данными, синхронные и асинхронные контракты, Outbox/Inbox, CQRS, свежесть проекций, частичные отказы и обоснованное масштабирование.
+
+Репозиторий: [Merriidiian/architecture-hl-skills](https://github.com/Merriidiian/architecture-hl-skills).
+
+## Подключение
+
+Python 3.9+, без дополнительных пакетов. Из каталога этого репозитория выбери подходящую команду, подставив существующий путь проекта:
+
+```sh
+python3 scripts/install.py --tool codex --project "/path/to/project" --dry-run
+python3 scripts/install.py --tool codex --project "/path/to/project"
+```
+
+Для Claude Code укажи `--tool claude`, для Cursor — `--tool cursor`. Вместо `--project "/path/to/project"` можно использовать `--user` для локальной установки на уровне пользователя.
+
+| Клиент | Каталог проекта | Каталог пользователя | Явный вызов |
+| --- | --- | --- | --- |
+| Codex | `.agents/skills/microservice-design/` | `~/.agents/skills/microservice-design/` | `$microservice-design` |
+| Claude Code | `.claude/skills/microservice-design/` | `~/.claude/skills/microservice-design/` | `/microservice-design` |
+| Cursor | `.cursor/skills/microservice-design/` | `~/.cursor/skills/microservice-design/` | `/microservice-design` через меню `/` |
+
+Cursor видит и совместимые каталоги Codex/Claude. Установщик для Cursor пропустит копирование при наличии идентичного навыка в такой папке в выбранной области. Если совместно используешь Codex и Claude Code, нужны оба их каталога; для Cursor дополнительная копия не требуется.
+
+Установщик предварительно проверяет все назначения, сохраняет отличающиеся существующие навыки и отказывается их перезаписывать. Идентичный повтор ничего не меняет. Символические ссылки требуют ручной установки. Для обновления сравни версии и сохрани старый каталог отдельно. Настройки, hooks, разрешения и инструкции проекта не меняются.
+
+Можно также скопировать [skills/microservice-design](skills/microservice-design/SKILL.md) целиком в выбранный каталог. Справочники должны оставаться рядом с `SKILL.md`. Если навык ещё не виден, открой новый сеанс клиента. Автоматический выбор по описанию включён по умолчанию.
+
+В обычном Claude загрузи [dist/microservice-design.zip](dist/microservice-design.zip) в **Customize → Skills**, если пользовательские навыки доступны, и включи его. В архиве один корневой каталог `microservice-design/` с `SKILL.md` и ресурсами; загрузка ZIP в Claude и установка в Claude Code независимы.
+
+## Применение
+
+```text
+$microservice-design Спроектируй систему заказов: владение данными, запись, события, чтение и восстановление после отказов.
+```
+
+Для Claude Code и Cursor замени `$` перед именем на `/`. Задачу можно сформулировать и без явного вызова: описание навыка позволяет клиенту выбрать его по контексту.
+
+[SKILL.md](skills/microservice-design/SKILL.md) содержит основные решения и маршруты к подробностям:
+
+- [boundaries-and-contracts.md](skills/microservice-design/references/boundaries-and-contracts.md)
+- [messaging-and-consistency.md](skills/microservice-design/references/messaging-and-consistency.md)
+- [reliability-and-evolution.md](skills/microservice-design/references/reliability-and-evolution.md)
+
+## Основа и проверка
+
+Карта материалов, первичные технические источники и уточнения: [sources.md](skills/microservice-design/references/sources.md). Контрольные суммы исходных архивов и документов, исходный commit репозитория и проверенные официальные страницы — в [provenance.json](provenance.json).
+
+Требования практикумов к сдаче, команды, учебные пароли и инструкции внутри документов не становятся полномочиями ассистента. Версии, число попыток, лимиты и структура стендов не навязываются другим проектам.
+
+```sh
+python3 -m unittest discover -s tests -v
+```
+
+Для пересборки ZIP после изменения навыка выполни `python3 scripts/package.py`.
+
+Тесты проверяют установщик во временных каталогах. [evals/scenarios.md](evals/scenarios.md) содержит запросы и критерии для ручной оценки поведения модели; структурная проверка файлов не заменяет её и проверку загрузки в клиенте.
+
+Формат проверен 16 ноября 2026 года: [Codex](https://developers.openai.com/codex/skills), [Claude Code](https://code.claude.com/docs/en/skills), [Cursor](https://cursor.com/docs/skills), [Claude ZIP](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills). Для старых сборок сверяй поддерживаемые пути и возможности.
+
+Лицензия: [MIT](LICENSE). Полные исходные учебные документы не входят в поставку.
