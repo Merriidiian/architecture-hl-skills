@@ -50,6 +50,7 @@ Cursor видит и совместимые каталоги Codex/Claude. Ус�
 [SKILL.md](skills/microservice-design/SKILL.md) содержит основные решения и маршруты к подробностям:
 
 - [boundaries-and-contracts.md](skills/microservice-design/references/boundaries-and-contracts.md)
+- [Соглашения проекта о DDD, gateway, gRPC, RabbitMQ, Redis и s3-storage](skills/microservice-design/references/project-architecture.md)
 - [messaging-and-consistency.md](skills/microservice-design/references/messaging-and-consistency.md)
 - [reliability-and-evolution.md](skills/microservice-design/references/reliability-and-evolution.md)
 
