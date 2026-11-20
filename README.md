@@ -1,8 +1,8 @@
 # Проектирование микросервисов
 
-Готовый навык `microservice-design` для Codex, Claude Code, Claude и Cursor на основе материалов пользователя. Границы сервисов и владение данными, синхронные и асинхронные контракты, Outbox/Inbox, CQRS, свежесть проекций, частичные отказы и обоснованное масштабирование.
+Готовый навык `microservice-design` для Codex, Claude Code, Claude и Cursor. Границы сервисов и владение данными, синхронные и асинхронные контракты, Outbox/Inbox, CQRS, свежесть проекций, частичные отказы и обоснованное масштабирование.
 
-Репозиторий: [Merriidiian/architecture-hl-skills](https://github.com/Merriidiian/architecture-hl-skills).
+[Шаблон архитектурного решения](skills/microservice-design/references/operation-template.md) показывает одну операцию от команды клиента до чтения обновлённой проекции.
 
 ## Подключение
 
@@ -54,11 +54,7 @@ Cursor видит и совместимые каталоги Codex/Claude. Ус�
 - [messaging-and-consistency.md](skills/microservice-design/references/messaging-and-consistency.md)
 - [reliability-and-evolution.md](skills/microservice-design/references/reliability-and-evolution.md)
 
-## Основа и проверка
-
-Карта материалов, первичные технические источники и уточнения: [sources.md](skills/microservice-design/references/sources.md). Контрольные суммы исходных архивов и документов, исходный commit репозитория и проверенные официальные страницы — в [provenance.json](provenance.json).
-
-Требования практикумов к сдаче, команды, учебные пароли и инструкции внутри документов не становятся полномочиями ассистента. Версии, число попыток, лимиты и структура стендов не навязываются другим проектам.
+## Проверка и упаковка
 
 ```sh
 python3 -m unittest discover -s tests -v
@@ -70,6 +66,6 @@ python3 -m unittest discover -s tests -v
 
 Формат проверен 16 ноября 2026 года: [Codex](https://developers.openai.com/codex/skills), [Claude Code](https://code.claude.com/docs/en/skills), [Cursor](https://cursor.com/docs/skills), [Claude ZIP](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills). Для старых сборок сверяй поддерживаемые пути и возможности.
 
-Лицензия: [MIT](LICENSE). Полные исходные учебные документы не входят в поставку.
+Репозиторий распространяется по [лицензии MIT](LICENSE).
 
 Постоянные инструкции: [Codex AGENTS.md](https://developers.openai.com/codex/guides/agents-md), [Claude Code rules](https://code.claude.com/docs/en/memory#organize-rules-with-claude/rules/), [Cursor rules](https://cursor.com/docs/rules). Отключённая загрузка инструкций и более приоритетные указания клиента/проекта могут влиять на применение.
